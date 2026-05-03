@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import eewLogo from "@assets/image_1777790673873.png";
+import eewLogo from "@assets/Gemini_Generated_Image_1duauj1duauj1dua__1_-removebg-preview_1777791151139.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +38,11 @@ export default function Header() {
           <a href="#home" className="flex items-center gap-3 z-50 group">
             <div className="relative">
               <div className="absolute inset-0 bg-primary/20 blur-md rounded-full group-hover:bg-primary/40 transition-all duration-300"></div>
-              <img src={eewLogo} alt="EEW Logo" className="w-12 h-12 relative z-10 drop-shadow-[0_0_5px_rgba(245,197,24,0.5)]" />
+              <img
+                src={eewLogo}
+                alt="EEW Logo"
+                className="w-14 h-14 relative z-10 drop-shadow-[0_0_8px_rgba(245,197,24,0.6)] object-contain"
+              />
             </div>
             <div className="hidden md:flex flex-col">
               <span className="font-heading font-bold text-xl tracking-wider text-white">EEW</span>
@@ -72,7 +76,7 @@ export default function Header() {
                 <span>electricalsengineeringworks@gmail.com</span>
               </a>
             </div>
-            <Button 
+            <Button
               className="bg-primary text-background hover:bg-primary/90 font-semibold shadow-[0_0_15px_rgba(245,197,24,0.3)] hover:shadow-[0_0_25px_rgba(245,197,24,0.6)] transition-all duration-300 border border-primary/50"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
@@ -112,7 +116,7 @@ export default function Header() {
                 </a>
               ))}
             </nav>
-            
+
             <div className="flex flex-col items-center gap-4 mt-8">
               <a href="tel:+917767062794" className="flex items-center gap-2 text-white/90">
                 <Phone className="w-5 h-5 text-primary" />
@@ -124,7 +128,7 @@ export default function Header() {
               </a>
             </div>
 
-            <Button 
+            <Button
               size="lg"
               className="mt-4 bg-primary text-background font-bold text-lg px-8 py-6 rounded-full"
               onClick={() => {
