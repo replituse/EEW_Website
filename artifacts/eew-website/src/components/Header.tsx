@@ -7,62 +7,95 @@ import eewLogo from "@assets/Gemini_Generated_Image_1duauj1duauj1dua__1_-removeb
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Track which section is in view
+  useEffect(() => {
+    const sectionIds = ["home", "about", "services", "testimonials", "contact"];
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { threshold: 0.3, rootMargin: "-80px 0px 0px 0px" }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
+
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", id: "home" },
+    { name: "About", href: "#about", id: "about" },
+    { name: "Services", href: "#services", id: "services" },
+    { name: "Testimonials", href: "#testimonials", id: "testimonials" },
+    { name: "Contact", href: "#contact", id: "contact" },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-white/5 py-3 shadow-lg"
-          : "bg-transparent py-5"
+          ? "bg-background/95 backdrop-blur-md border-b border-white/5 shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 z-50">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo — larger but header height stays fixed at h-20 */}
+          <a href="#home" className="flex items-center gap-3 z-50 flex-shrink-0">
             <img
               src={eewLogo}
               alt="EEW Logo"
-              className="w-20 h-20 object-contain"
+              className="w-28 h-28 object-contain"
+              style={{ marginTop: "-8px", marginBottom: "-8px" }}
             />
             <div className="hidden md:flex flex-col">
-              <span className="font-heading font-bold text-xl tracking-wider text-white">EEW</span>
-              <span className="text-[0.65rem] text-primary tracking-widest uppercase font-semibold">Engineering Works</span>
+              <span className="font-heading font-bold text-xl tracking-wider text-white leading-tight">EEW</span>
+              <span className="text-[0.65rem] text-primary tracking-widest uppercase font-semibold leading-tight">Engineering Works</span>
             </div>
           </a>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-white/80 hover:text-primary transition-colors hover:text-glow relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm font-medium transition-colors relative group py-1"
+                  style={{ color: isActive ? "#f5c518" : "rgba(255,255,255,0.8)" }}
+                >
+                  {link.name}
+                  {/* Golden underline — always rendered, width animates */}
+                  <span
+                    className="absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300"
+                    style={{ width: isActive ? "100%" : "0%", opacity: isActive ? 1 : 0 }}
+                  />
+                  {/* Hover underline for inactive */}
+                  {!isActive && (
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/50 transition-all duration-300 group-hover:w-full" />
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Contact Info & CTA (Desktop) */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6 flex-shrink-0">
             <div className="flex flex-col items-end text-sm">
               <a href="tel:+917767062794" className="flex items-center gap-2 text-white/90 hover:text-primary transition-colors">
                 <Phone className="w-3.5 h-3.5" />
@@ -75,7 +108,7 @@ export default function Header() {
             </div>
             <Button
               className="bg-primary text-background hover:bg-primary/90 font-semibold shadow-[0_0_15px_rgba(245,197,24,0.3)] hover:shadow-[0_0_25px_rgba(245,197,24,0.6)] transition-all duration-300 border border-primary/50"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
               Get Quote
             </Button>
@@ -106,7 +139,8 @@ export default function Header() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-2xl font-heading font-bold text-white hover:text-primary transition-colors"
+                  className="text-2xl font-heading font-bold transition-colors"
+                  style={{ color: activeSection === link.id ? "#f5c518" : "white" }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -130,7 +164,7 @@ export default function Header() {
               className="mt-4 bg-primary text-background font-bold text-lg px-8 py-6 rounded-full"
               onClick={() => {
                 setMobileMenuOpen(false);
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               Get a Quote

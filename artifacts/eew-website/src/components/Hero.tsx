@@ -336,48 +336,7 @@ export default function Hero() {
           </Button>
         </motion.div>
 
-        {/* Stats bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="mt-20 grid grid-cols-3 gap-8 border-t border-white/10 pt-10 w-full max-w-xl"
-        >
-          {[
-            { value: "500+", label: "Panels Built" },
-            { value: "100%", label: "Quality Tested" },
-            { value: "24/7", label: "Support" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center">
-              <span
-                className="text-2xl md:text-3xl font-heading font-bold text-primary"
-                style={{ filter: "drop-shadow(0 0 10px rgba(245,197,24,0.6))" }}
-              >
-                {stat.value}
-              </span>
-              <span className="text-xs text-white/50 uppercase tracking-widest mt-1">{stat.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ zIndex: 10 }}
-      >
-        <span className="text-xs uppercase tracking-widest text-white/40">Scroll</span>
-        <div className="w-[1px] h-12 bg-white/20 relative overflow-hidden">
-          <motion.div
-            animate={{ y: [0, 48] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-primary to-transparent"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }
