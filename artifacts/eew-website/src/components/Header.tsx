@@ -39,7 +39,7 @@ export default function Header() {
             <img
               src={eewLogo}
               alt="EEW Logo"
-              className="w-12 h-12 object-contain"
+              className="w-20 h-20 object-contain"
             />
             <div className="hidden md:flex flex-col">
               <span className="font-heading font-bold text-xl tracking-wider text-white">EEW</span>

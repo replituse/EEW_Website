@@ -17,7 +17,7 @@ export default function Footer() {
               <img
                 src={eewLogo}
                 alt="EEW Logo"
-                className="w-12 h-12 object-contain"
+                className="w-20 h-20 object-contain"
               />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg tracking-wider text-white leading-tight">EEW</span>
