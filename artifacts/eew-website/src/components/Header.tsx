@@ -35,15 +35,12 @@ export default function Header() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 z-50 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 blur-md rounded-full group-hover:bg-primary/40 transition-all duration-300"></div>
-              <img
-                src={eewLogo}
-                alt="EEW Logo"
-                className="w-14 h-14 relative z-10 drop-shadow-[0_0_8px_rgba(245,197,24,0.6)] object-contain"
-              />
-            </div>
+          <a href="#home" className="flex items-center gap-3 z-50">
+            <img
+              src={eewLogo}
+              alt="EEW Logo"
+              className="w-12 h-12 object-contain"
+            />
             <div className="hidden md:flex flex-col">
               <span className="font-heading font-bold text-xl tracking-wider text-white">EEW</span>
               <span className="text-[0.65rem] text-primary tracking-widest uppercase font-semibold">Engineering Works</span>

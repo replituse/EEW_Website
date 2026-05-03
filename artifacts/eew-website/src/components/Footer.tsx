@@ -1,23 +1,24 @@
 import { Zap, MapPin, Phone, Mail, ChevronRight } from "lucide-react";
-import eewLogo from "@assets/image_1777790673873.png";
+import eewLogo from "@assets/Gemini_Generated_Image_1duauj1duauj1dua__1_-removebg-preview_1777791151139.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-[#05081c] border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[200px] bg-primary/10 blur-[120px] pointer-events-none rounded-t-full" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Brand Col */}
           <div className="lg:col-span-1">
             <a href="#home" className="flex items-center gap-3 mb-6 inline-flex">
-              <div className="relative">
-                <img src={eewLogo} alt="EEW Logo" className="w-10 h-10 relative z-10 drop-shadow-[0_0_5px_rgba(245,197,24,0.5)]" />
-              </div>
+              <img
+                src={eewLogo}
+                alt="EEW Logo"
+                className="w-12 h-12 object-contain"
+              />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg tracking-wider text-white leading-tight">EEW</span>
                 <span className="text-[0.55rem] text-primary tracking-widest uppercase font-semibold leading-tight">Engineering Works</span>
@@ -43,11 +44,17 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-heading font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {['Home', 'About Us', 'Our Services', 'Testimonials', 'Contact'].map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(' ', '')}`} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-sm group">
+              {[
+                { label: "Home", href: "#home" },
+                { label: "About Us", href: "#about" },
+                { label: "Our Services", href: "#services" },
+                { label: "Testimonials", href: "#testimonials" },
+                { label: "Contact", href: "#contact" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-sm group">
                     <ChevronRight className="w-3 h-3 text-primary/0 group-hover:text-primary transition-colors" />
-                    <span className="group-hover:translate-x-1 transition-transform">{link}</span>
+                    <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
                   </a>
                 </li>
               ))}
@@ -58,7 +65,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-heading font-bold mb-6">Expertise</h4>
             <ul className="space-y-3">
-              {['Panel Manufacturing', 'Control Wiring', 'Power Wiring', 'GA & IGA Drawings', 'Terminal Layouts'].map((service) => (
+              {["Panel Manufacturing", "Control Wiring", "Power Wiring", "GA & IGA Drawings", "Terminal Layouts"].map((service) => (
                 <li key={service}>
                   <a href="#services" className="text-muted-foreground hover:text-secondary transition-colors flex items-center gap-2 text-sm group">
                     <Zap className="w-3 h-3 text-secondary/0 group-hover:text-secondary transition-colors" />
@@ -75,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
-                <span>Thane, Maharashtra<br/>India</span>
+                <span>Thane, Maharashtra<br />India</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
@@ -96,7 +103,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <span>Engineered with precision in</span>
-            <span className="text-primary font-semibold">Maharashtra, India</span>
+            <span className="text-primary font-semibold ml-1">Maharashtra, India</span>
           </div>
         </div>
       </div>
