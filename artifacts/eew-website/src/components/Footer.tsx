@@ -1,5 +1,5 @@
 import { Zap, MapPin, Phone, Mail, ChevronRight } from "lucide-react";
-import eewLogo from "@assets/Gemini_Generated_Image_1duauj1duauj1dua__1_-removebg-preview_1777791151139.png";
+import eewLogo from "@assets/Gemini_Generated_Image_1duauj1duauj1dua__1_-removebg-preview_1777793854349.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,18 +10,12 @@ export default function Footer() {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-
-          {/* Brand Col */}
           <div className="lg:col-span-1">
             <a href="#home" className="flex items-center gap-3 mb-6 inline-flex">
-              <img
-                src={eewLogo}
-                alt="EEW Logo"
-                className="w-32 h-32 object-contain"
-              />
+              <img src={eewLogo} alt="EEW Logo" className="w-32 h-32 object-contain" />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg tracking-wider text-white leading-tight">EEW</span>
-                <span className="text-[0.55rem] text-primary tracking-widest uppercase font-semibold leading-tight">Engineering Works</span>
+                <span className="text-[0.55rem] text-primary tracking-widest uppercase font-semibold leading-tight">Electrical Engineering Works</span>
               </div>
             </a>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -40,7 +34,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-white font-heading font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
@@ -61,11 +54,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
             <h4 className="text-white font-heading font-bold mb-6">Expertise</h4>
             <ul className="space-y-3">
-              {["Panel Manufacturing", "Control Wiring", "Power Wiring", "GA & IGA Drawings", "Terminal Layouts"].map((service) => (
+              {['Panel Manufacturing', 'Control Wiring', 'Power Wiring', 'GA & IGA Drawings', 'Terminal Layouts'].map((service) => (
                 <li key={service}>
                   <a href="#services" className="text-muted-foreground hover:text-secondary transition-colors flex items-center gap-2 text-sm group">
                     <Zap className="w-3 h-3 text-secondary/0 group-hover:text-secondary transition-colors" />
@@ -76,7 +68,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="text-white font-heading font-bold mb-6">Contact Us</h4>
             <ul className="space-y-4">
@@ -94,13 +85,10 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-xs">
-            &copy; {currentYear} Electrical Engineering Works. All rights reserved.
-          </p>
+          <p className="text-muted-foreground text-xs">&copy; {currentYear} Electrical Engineering Works. All rights reserved.</p>
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <span>Engineered with precision in</span>
             <span className="text-primary font-semibold ml-1">Maharashtra, India</span>

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
-import eewLogo from "@assets/Gemini_Generated_Image_1duauj1duauj1dua__1_-removebg-preview_1777791151139.png";
+import eewLogo from "@assets/Gemini_Generated_Image_1duauj1duauj1dua__1_-removebg-preview_1777793854349.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,32 +39,24 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Home",         href: "#home",         id: "home" },
-    { name: "About",        href: "#about",        id: "about" },
-    { name: "Services",     href: "#services",     id: "services" },
+    { name: "Home", href: "#home", id: "home" },
+    { name: "About", href: "#about", id: "about" },
+    { name: "Services", href: "#services", id: "services" },
     { name: "Testimonials", href: "#testimonials", id: "testimonials" },
-    { name: "Contact",      href: "#contact",      id: "contact" },
+    { name: "Contact", href: "#contact", id: "contact" },
   ];
 
   const navColor = (id: string) =>
-    activeSection === id
-      ? "#f5c518"
-      : isDark
-      ? "rgba(255,255,255,0.8)"
-      : "rgba(10,14,39,0.75)";
+    activeSection === id ? "#f5c518" : isDark ? "rgba(255,255,255,0.8)" : "rgba(10,14,39,0.75)";
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg"
-          : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
-
-          {/* Logo */}
           <a href="#home" className="flex items-center gap-3 z-50 flex-shrink-0">
             <img
               src={eewLogo}
@@ -73,36 +65,28 @@ export default function Header() {
               style={{ marginTop: "-8px", marginBottom: "-8px" }}
             />
             <div className="hidden md:flex flex-col">
-              <span className="font-heading font-bold text-xl tracking-wider leading-tight" style={{ color: isDark ? "#ffffff" : "#0a0e27" }}>EEW</span>
-              <span className="text-[0.65rem] text-primary tracking-widest uppercase font-semibold leading-tight">Engineering Works</span>
+              <span className="font-heading font-bold text-xl tracking-wider leading-tight" style={{ color: isDark ? "#ffffff" : "#0a0e27" }}>
+                EEW
+              </span>
+              <span className="text-[0.65rem] text-primary tracking-widest uppercase font-semibold leading-tight">
+                Electrical Engineering Works
+              </span>
             </div>
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm font-medium transition-colors relative group py-1"
-                  style={{ color: navColor(link.id) }}
-                >
+                <a key={link.name} href={link.href} className="text-sm font-medium transition-colors relative group py-1" style={{ color: navColor(link.id) }}>
                   {link.name}
-                  <span
-                    className="absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300"
-                    style={{ width: isActive ? "100%" : "0%", opacity: isActive ? 1 : 0 }}
-                  />
-                  {!isActive && (
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/50 transition-all duration-300 group-hover:w-full" />
-                  )}
+                  <span className="absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300" style={{ width: isActive ? "100%" : "0%", opacity: isActive ? 1 : 0 }} />
+                  {!isActive && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/50 transition-all duration-300 group-hover:w-full" />}
                 </a>
               );
             })}
           </nav>
 
-          {/* CTA + Theme Toggle (Desktop) */}
           <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
             <div className="flex flex-col items-end text-sm">
               <a href="tel:+917767062794" className="flex items-center gap-2 hover:text-primary transition-colors" style={{ color: isDark ? "rgba(255,255,255,0.9)" : "rgba(10,14,39,0.85)" }}>
@@ -122,7 +106,6 @@ export default function Header() {
               Get Quote
             </Button>
 
-            {/* Dark / Light toggle */}
             <motion.button
               onClick={toggleTheme}
               whileTap={{ scale: 0.85 }}
@@ -135,25 +118,11 @@ export default function Header() {
             >
               <AnimatePresence mode="wait" initial={false}>
                 {isDark ? (
-                  <motion.span
-                    key="sun"
-                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                    transition={{ duration: 0.25 }}
-                    className="absolute"
-                  >
+                  <motion.span key="sun" initial={{ rotate: -90, opacity: 0, scale: 0.5 }} animate={{ rotate: 0, opacity: 1, scale: 1 }} exit={{ rotate: 90, opacity: 0, scale: 0.5 }} transition={{ duration: 0.25 }} className="absolute">
                     <Sun className="w-4.5 h-4.5 text-primary" />
                   </motion.span>
                 ) : (
-                  <motion.span
-                    key="moon"
-                    initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                    transition={{ duration: 0.25 }}
-                    className="absolute"
-                  >
+                  <motion.span key="moon" initial={{ rotate: 90, opacity: 0, scale: 0.5 }} animate={{ rotate: 0, opacity: 1, scale: 1 }} exit={{ rotate: -90, opacity: 0, scale: 0.5 }} transition={{ duration: 0.25 }} className="absolute">
                     <Moon className="w-4.5 h-4.5" style={{ color: "#0a0e27" }} />
                   </motion.span>
                 )}
@@ -161,7 +130,6 @@ export default function Header() {
             </motion.button>
           </div>
 
-          {/* Mobile: theme toggle + hamburger */}
           <div className="lg:hidden flex items-center gap-2 z-50">
             <motion.button
               onClick={toggleTheme}
@@ -185,18 +153,13 @@ export default function Header() {
               </AnimatePresence>
             </motion.button>
 
-            <button
-              className="hover:text-primary p-2 transition-colors"
-              style={{ color: isDark ? "white" : "#0a0e27" }}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
+            <button className="hover:text-primary p-2 transition-colors" style={{ color: isDark ? "white" : "#0a0e27" }} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -208,13 +171,7 @@ export default function Header() {
           >
             <nav className="flex flex-col items-center gap-6">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-2xl font-heading font-bold transition-colors"
-                  style={{ color: activeSection === link.id ? "#f5c518" : isDark ? "white" : "#0a0e27" }}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+                <a key={link.name} href={link.href} className="text-2xl font-heading font-bold transition-colors" style={{ color: activeSection === link.id ? "#f5c518" : isDark ? "white" : "#0a0e27" }} onClick={() => setMobileMenuOpen(false)}>
                   {link.name}
                 </a>
               ))}
