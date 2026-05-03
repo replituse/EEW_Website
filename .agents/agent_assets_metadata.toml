@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "tL5rVOVPbtkrvyovuGmVz"
+uri = "file://artifacts/eew-website/src/assets/hero-bg.png"
+type = "image"
+title = "Hero background industrial facility"
+
+[[generated]]
+id = "1p3H9QNk-U7XoTlmTRs1k"
+uri = "file://artifacts/eew-website/src/assets/control-panel.png"
+type = "image"
+title = "Control panel close-up"
+
+[[generated]]
+id = "Jup7Cbqvuc_0ucvggqo1Y"
+uri = "file://artifacts/eew-website/src/assets/technical-drawing.png"
+type = "image"
+title = "Wiring technical drawing"

@@ -1,0 +1,128 @@
+You are a senior full-stack developer and UI/UX designer.
+
+Build a modern, highly attractive, responsive SINGLE PAGE WEBSITE for an Electrical Engineering Company named "Electrical Engineering Works (EEW)".
+
+🔧 TECH STACK (STRICT):
+- Frontend: React.js (Vite)
+- Styling: Tailwind CSS
+- Animations: Framer Motion + CSS animations
+- Icons: Lucide React + custom electrical icons
+- No backend required
+
+🎨 DESIGN THEME:
+- Dark + Electric Theme (Navy Blue + Yellow/Gold like logo)
+- Inspired by electricity: sparks, lightning, wiring effects, glow, pulse animations
+- Use smooth transitions and micro-interactions
+- Add subtle animated background (electric particles / grid / flowing current lines)
+
+📁 ASSETS:
+- Use provided EEW logo (gear + lightning symbol)
+- Use services content from attached image:
+  - Expertise:
+    GA Drawing
+    IGA Drawing
+    Power Wiring Drawing
+    Control Wiring Drawing
+    Terminal Drawing
+    Layout Drawing
+    Panel Costing
+    Quotation with BOQ
+  - Panel Types:
+    LT Panel
+    MCC Panel
+    PCC Panel
+    Heater Panel
+    AHU Panel
+    Relay Control Panel
+    APFC Panel
+
+📱 HEADER (Sticky + Transparent → Solid on scroll):
+- Logo on left
+- Menu:
+  Home | About | Services | Testimonials | Contact
+- Right side:
+  Phone: +91 7767062794
+  Email: electricalsengineeringworks@gmail.com
+- Add CTA button: "Get Quote"
+
+🏠 HERO SECTION:
+- Full screen
+- Big bold heading:
+  "Powering Your Electrical Solutions"
+- Subtext about expertise in panels & drawings
+- Animated lightning/spark effect
+- CTA buttons:
+  "Our Services" & "Contact Us"
+- Add AI-generated industrial/electrical background image
+
+👨‍🔧 ABOUT SECTION:
+- Short company intro
+- Highlight:
+  - Experience
+  - Precision Engineering
+  - Custom Panel Solutions
+- Add animated icons
+
+⚡ SERVICES SECTION (MAIN FOCUS):
+- Split into 2 columns:
+  1. Expertise
+  2. Panel Types
+- Use cards with hover glow animation
+- Add AI-generated images for:
+  - Electrical panels
+  - Wiring systems
+  - Industrial control rooms
+- Add motion animation on scroll
+
+💬 TESTIMONIAL SECTION:
+- 3–5 dummy testimonials
+- Sliding carousel
+- Clean cards with star ratings
+
+📞 CONTACT SECTION:
+- Contact form (Name, Phone, Message)
+- Display:
+  Phone: +91 7767062794
+  Email: electricalsengineeringworks@gmail.com
+  Location: Thane, Maharashtra
+- Embed Google Map (optional placeholder)
+
+📲 WHATSAPP FLOAT BUTTON:
+- Bottom right fixed button
+- Click → opens WhatsApp chat with phone number
+- Add pulse animation
+
+📦 FOOTER:
+- Logo
+- Quick links
+- Services short list
+- Social icons
+- Copyright
+
+✨ ANIMATIONS:
+- Smooth scroll
+- Section reveal animations (Framer Motion)
+- Hover glow effects (electric style)
+- Lightning flash transitions (subtle, not excessive)
+
+📐 RESPONSIVENESS:
+- Fully mobile optimized
+- Tablet + Desktop perfect layout
+
+🎯 INSPIRATION SITES:
+- https://maisyswitch.com/
+- https://the-electric-company.grexa.site/
+BUT make it cleaner, modern, and more animated
+
+📁 OUTPUT:
+- Clean folder structure
+- Reusable components
+- Well-commented code
+- Ready to deploy
+
+🎁 BONUS:
+- Add loading animation (electric spark loader)
+- Add scroll progress indicator
+- Add "Back to top" button
+
+Goal: Website should look PREMIUM, MODERN, and TRUSTWORTHY and strongly highlight SERVICES.
